@@ -14,7 +14,7 @@ arch="${1}"
 shift
 
 if [ "${CROSS_RUNNER}" = "" ]; then
-	CROSS_RUNNER=qemu-user
+	CROSS_RUNNER=qemu-system
 fi
 
 # select qemu arch
