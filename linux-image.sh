@@ -6,17 +6,15 @@ set -euo pipefail
 main() {
     # arch in the rust target
     local arch="${1}" \
-          kversion=5.10.0-0.bpo.3
+          kversion=5.10.0-4
 
-    local debsource="deb http://http.debian.net/debian/ buster main"
-    debsource="${debsource}\ndeb http://http.debian.net/debian/ buster-backports main"
-    debsource="${debsource}\ndeb http://security.debian.org/ buster/updates main"
+    local debsource="deb http://http.debian.net/debian/ bullseye main"
 
     local dropbear="dropbear-bin"
 
     local -a deps
     local kernel=
-    local libgcc="libgcc1"
+    local libgcc="libgcc-s1"
 
     # select debian arch and kernel version
     case "${arch}" in
@@ -84,6 +82,7 @@ main() {
         "${dropbear}:${arch}" \
         "libtommath1:${arch}" \
         "libtomcrypt1:${arch}" \
+        "libcrypt1:${arch}" \
         "libgmp10:${arch}" \
         "libc6:${arch}" \
         "${libgcc}:${arch}" \
