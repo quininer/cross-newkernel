@@ -6,7 +6,7 @@ set -euo pipefail
 main() {
     # arch in the rust target
     local arch="${1}" \
-          kversion=5.10.0-4
+          kversion=6.2.5
 
     local debsource="deb http://http.debian.net/debian/ bullseye main"
 
